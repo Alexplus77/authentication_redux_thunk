@@ -1,0 +1,12 @@
+.header-container{
+    display: grid;
+    background-color: blue;
+    height: 15vh;
+    grid-auto-flow: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo{
+color: white;
+}

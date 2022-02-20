@@ -1,0 +1,12 @@
+body{
+  display: grid;
+  justify-items: center;
+  top:0;
+  bottom: 0;
+}
+.pages-container{
+  display: grid;
+  justify-self: center;
+  justify-items: center;
+  width: 1300px;
+}

@@ -1,0 +1,11 @@
+.form-container{
+    display: grid;
+    grid-auto-flow: column;
+gap: 5px;
+    width: 700px;
+    justify-self: right;
+   padding-top: 10px;
+}
+.label{
+    color: white;
+}

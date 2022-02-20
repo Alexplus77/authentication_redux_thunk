@@ -1,0 +1,13 @@
+.form-registration{
+    display: grid;
+    justify-items: center;
+    width: 500px;
+    justify-self: center;
+    background-color: blue;
+    height: 30vh;
+    padding-top: 30px;
+    margin-bottom: 200px;
+}
+.label{
+  color:white;
+}
