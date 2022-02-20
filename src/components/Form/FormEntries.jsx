@@ -1,10 +1,12 @@
 import React from "react";
 import { Form, Input, Button } from "antd";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import "./FormEntries.css";
 
 const FormEntries = () => {
-  const isAuth = true;
+  const { onRegistration } = useSelector((state) => state.storeReducer);
+
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -14,7 +16,7 @@ const FormEntries = () => {
   };
   return (
     <Form
-      className={isAuth ? "form-auth" : "form-registration"}
+      className="form-auth"
       name="basic"
       initialValues={{
         remember: true,
@@ -51,7 +53,7 @@ const FormEntries = () => {
 
       <Form.Item>
         <Button type="primary" htmlType="submit">
-          Submit
+          LogIn
         </Button>
       </Form.Item>
       <Form.Item>

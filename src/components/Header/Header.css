@@ -1,6 +1,6 @@
 .header-container{
     display: grid;
-    background-color: blue;
+    background-color:  #0202cb;
     height: 15vh;
     grid-auto-flow: column;
     align-items: center;
