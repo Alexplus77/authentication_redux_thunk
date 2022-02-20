@@ -13,8 +13,6 @@ const { Title } = Typography;
 const FormRegistrationPage = () => {
   const dispatch = useDispatch();
   const { userRegistration } = useSelector((state) => state.storeReducer);
-  const onFieldChange = (allFields) =>
-    allFields.map((elem) => dispatch(add_value_users(elem.name, elem.value)));
 
   const onFinish = (values) => {
     dispatch(handle_submit_registration(values));
@@ -29,7 +27,6 @@ const FormRegistrationPage = () => {
     <div className="container-form">
       <Title>Форма регистрации пользователя</Title>
       <Form
-        onFieldsChange={(_, allFields) => onFieldChange(allFields)}
         className="form-registration"
         name="basic1"
         initialValues={{

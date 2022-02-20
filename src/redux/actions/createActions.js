@@ -6,10 +6,10 @@ import {
 } from "./actionTypes";
 import axios from "axios";
 
-export const add_value_users = (name, value) => ({
-  type: ADD_VALUE_USERS,
-  payload: { name, value },
-});
+// export const add_value_users = (name, value) => ({
+//   type: ADD_VALUE_USERS,
+//   payload: { name, value },
+// });
 
 export const handle_submit_registration = (data) => (dispatch) => {
   axios

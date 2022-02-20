@@ -4,5 +4,13 @@
 }
 .title-container{
     display: grid;
+}
 
+.content-mainPage{
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.img-mainPage{
+    width: 700px;
 }
