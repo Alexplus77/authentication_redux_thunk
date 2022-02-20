@@ -1,8 +1,10 @@
 import React from "react";
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button } from "antd";
+import { Link } from "react-router-dom";
 import "./FormEntries.css";
 
 const FormEntries = () => {
+  const isAuth = true;
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -12,8 +14,8 @@ const FormEntries = () => {
   };
   return (
     <Form
+      className={isAuth ? "form-auth" : "form-registration"}
       name="basic"
-      className="form-container"
       initialValues={{
         remember: true,
       }}
@@ -53,7 +55,9 @@ const FormEntries = () => {
         </Button>
       </Form.Item>
       <Form.Item>
-        <Button type="primary">Registration</Button>
+        <Button type="primary">
+          <Link to={"/registration"}>Registration</Link>
+        </Button>
       </Form.Item>
     </Form>
   );

@@ -11,7 +11,11 @@ const Header = () => {
   };
   return (
     <div className="header-container">
-      <Title style={style}>Neto Social</Title>
+      <Title style={style}>
+        <NavLink style={{ color: "white" }} to={"/"}>
+          Neto Social
+        </NavLink>
+      </Title>
       <FormEntries />
     </div>
   );

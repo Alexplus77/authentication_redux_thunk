@@ -1,10 +1,20 @@
-.form-container{
+.form-auth{
     display: grid;
     grid-auto-flow: column;
 gap: 5px;
     width: 700px;
     justify-self: right;
    padding-top: 10px;
+}
+.form-registration{
+    display: grid;
+    justify-items: center;
+    width: 500px;
+    justify-self: center;
+    background-color: blue;
+    height: 30vh;
+    padding-top: 30px;
+    margin-bottom: 200px;
 }
 .label{
     color: white;
