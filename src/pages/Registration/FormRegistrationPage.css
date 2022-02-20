@@ -1,3 +1,7 @@
+.container-form{
+    display: grid;
+    justify-items: center;
+}
 .form-registration{
     display: grid;
     justify-items: center;
