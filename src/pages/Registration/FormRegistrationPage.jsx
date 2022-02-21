@@ -1,21 +1,20 @@
 import React from "react";
 import "./FormRegistrationPage.css";
 import { Button, Form, Input, Typography } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  add_value_users,
-  handle_submit_registration,
-} from "redux/actions/createActions";
+import { handle_submit_registration } from "redux/actions/createActions";
 
 const { Title } = Typography;
 
 const FormRegistrationPage = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { userRegistration } = useSelector((state) => state.storeReducer);
 
   const onFinish = (values) => {
     dispatch(handle_submit_registration(values));
+    navigate("/");
     console.log("Success:", values);
   };
 

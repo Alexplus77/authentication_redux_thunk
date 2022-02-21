@@ -3,12 +3,14 @@ import { Form, Input, Button } from "antd";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./FormEntries.css";
+import { handle_auth_user } from "redux/actions/createActions";
 
 const FormEntries = () => {
   const { onRegistration } = useSelector((state) => state.storeReducer);
-
+  const dispatch = useDispatch();
   const onFinish = (values) => {
     console.log("Success:", values);
+    dispatch(handle_auth_user(values));
   };
 
   const onFinishFailed = (errorInfo) => {

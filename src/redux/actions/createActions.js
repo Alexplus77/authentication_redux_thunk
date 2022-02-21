@@ -6,11 +6,6 @@ import {
 } from "./actionTypes";
 import axios from "axios";
 
-// export const add_value_users = (name, value) => ({
-//   type: ADD_VALUE_USERS,
-//   payload: { name, value },
-// });
-
 export const handle_submit_registration = (data) => (dispatch) => {
   axios
     .post("http://localhost:8080/registration", data)
@@ -18,4 +13,10 @@ export const handle_submit_registration = (data) => (dispatch) => {
     .catch((e) => {
       console.log(e.message);
     });
+};
+export const handle_auth_user = (data) => (dispatch) => {
+  axios
+    .post("http://localhost:8080/auth", data)
+    .then(({ data }) => console.log(data))
+    .catch((e) => console.log(e));
 };
