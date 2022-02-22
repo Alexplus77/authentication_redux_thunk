@@ -1,23 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./MainePage.css";
-import { Typography } from "antd";
-
-const { Title } = Typography;
+import { NotAuthWallpaper } from "components/NotAuthWallpaper";
+import { News_List } from "components/NewsList";
+import { useSelector, useDispatch } from "react-redux";
+import { fetch_news } from "../../redux/actions/createActions";
 
 const MainPage = () => {
+  const { isAuth } = useSelector((state) => state.storeReducer);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetch_news());
+  }, [dispatch, isAuth]);
+
   return (
     <div className="mainPage-container">
-      <div className="content-mainPage">
-        <div className="title-continer">
-          <Title style={{ fontSize: "6em" }}>Neto Social</Title>
-          <Title level={3}>FaceBook and VK killer.</Title>
-        </div>
-        <img
-          className="img-mainPage"
-          src={"https://i.ibb.co/cCykn4G/pngegg.png"}
-          alt={"photo"}
-        />
-      </div>
+      {isAuth ? <News_List /> : <NotAuthWallpaper />}
     </div>
   );
 };

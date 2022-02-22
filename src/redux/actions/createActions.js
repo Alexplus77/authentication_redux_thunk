@@ -4,6 +4,7 @@ import {
   SUBMIT_REGISTRATION,
   SUBMIT_AUTH,
   EXIT_AUTH,
+  FETCH_NEWS,
 } from "./actionTypes";
 import axios from "axios";
 
@@ -24,9 +25,30 @@ export const handle_auth_user = (data) => (dispatch) => {
     .post("http://localhost:8080/auth", data)
     .then(({ data }) => {
       dispatch(submit_auth(data));
+      localStorage.setItem("token", data.token);
     })
     .catch((e) => console.log(e));
 };
-export const handle_auth_exit = () => ({
+export const auth_exit = () => ({
   type: EXIT_AUTH,
 });
+export const handle_auth_exit = () => (dispatch) => {
+  dispatch(auth_exit());
+  localStorage.removeItem("token");
+};
+export const state_fetch_news = (dataNews) => ({
+  type: FETCH_NEWS,
+  payload: dataNews,
+});
+export const fetch_news = () => (dispatch) => {
+  let token = localStorage.getItem("token");
+  axios
+    .get("http://localhost:8080/news", {
+      headers: { Authorisation: `Bearer ${token}` },
+    })
+    .then(({ data }) => dispatch(state_fetch_news(data)))
+    .catch((e) => {
+      console.log("error fetchNews", e);
+      handle_auth_exit();
+    });
+};

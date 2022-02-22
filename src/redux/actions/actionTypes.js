@@ -3,3 +3,4 @@ export const SUBMIT_REGISTRATION = "SUBMIT_REGISTRATION";
 export const SUBMIT_AUTH = "SUBMIT_AUTH";
 export const ON_REGISTRATION = "ON_REGISTRATION";
 export const EXIT_AUTH = "EXIT_AUTH";
+export const FETCH_NEWS = "FETCH_NEWS";

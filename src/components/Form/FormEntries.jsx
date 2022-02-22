@@ -1,13 +1,14 @@
 import React from "react";
 import { Form, Input, Button } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./FormEntries.css";
-import { handle_auth_user } from "redux/actions/createActions";
+import { handle_auth_user, fetch_news } from "redux/actions/createActions";
 
 const FormEntries = () => {
   const { onRegistration } = useSelector((state) => state.storeReducer);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const onFinish = (values) => {
     console.log("Success:", values);
     dispatch(handle_auth_user(values));

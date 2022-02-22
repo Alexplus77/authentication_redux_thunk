@@ -4,6 +4,7 @@ import {
   SUBMIT_REGISTRATION,
   SUBMIT_AUTH,
   EXIT_AUTH,
+  FETCH_NEWS,
 } from "redux/actions/actionTypes";
 
 const initialState = {
@@ -23,7 +24,15 @@ const storeReducer = (state = initialState, action) => {
       };
     case SUBMIT_AUTH:
       const data = action.payload;
-      return { ...state, authUser: data, isAuth: true };
+      return { ...state, authUser: data, isAuth: true, dataNews: data.news };
+    case FETCH_NEWS:
+      const { news, user } = action.payload;
+      return {
+        ...state,
+        isAuth: true,
+        dataNews: news,
+        authUser: user,
+      };
     case EXIT_AUTH:
       return { ...state, authUser: {}, isAuth: false };
     default:

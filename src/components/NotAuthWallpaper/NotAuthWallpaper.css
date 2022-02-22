@@ -1,0 +1,13 @@
+.title-container{
+    display: grid;
+    height: 100px;
+}
+
+.content-mainPage{
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.img-mainPage{
+    width: 700px;
+}

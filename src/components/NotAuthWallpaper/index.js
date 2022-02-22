@@ -1,0 +1,1 @@
+export { NotAuthWallpaper } from "./NotAuthWallpaper";

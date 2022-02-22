@@ -1,0 +1,6 @@
+.container-news{
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    gap: 10px;
+
+}
