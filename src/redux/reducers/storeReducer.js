@@ -3,12 +3,14 @@ import {
   ON_REGISTRATION,
   SUBMIT_REGISTRATION,
   SUBMIT_AUTH,
+  EXIT_AUTH,
 } from "redux/actions/actionTypes";
 
 const initialState = {
   dataNews: [],
   onRegistration: false,
   isAuth: false,
+  authUser: {},
   userRegistration: {},
 };
 const storeReducer = (state = initialState, action) => {
@@ -19,6 +21,11 @@ const storeReducer = (state = initialState, action) => {
         ...state,
         userRegistration: { ...state.userRegistration, [name]: value },
       };
+    case SUBMIT_AUTH:
+      const data = action.payload;
+      return { ...state, authUser: data, isAuth: true };
+    case EXIT_AUTH:
+      return { ...state, authUser: {}, isAuth: false };
     default:
       return state;
   }

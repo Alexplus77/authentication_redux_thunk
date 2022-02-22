@@ -1,0 +1,15 @@
+.form-authUser-container{
+    display: grid;
+    grid-auto-flow: column;
+    justify-self: right;
+    align-self: center;
+gap: 10px;
+
+}
+.img-avatar{
+height: 40px;
+}
+.auth-username{
+    color: white;
+    font-size: 18px;
+}

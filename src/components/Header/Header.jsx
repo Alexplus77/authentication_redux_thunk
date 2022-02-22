@@ -3,12 +3,16 @@ import { NavLink } from "react-router-dom";
 import "./Header.css";
 import { FormEntries } from "components/Form";
 import { Typography } from "antd";
+import { useSelector } from "react-redux";
+import { FormAuthUser } from "components/FormAuthUser";
+
 const { Title } = Typography;
 
 const Header = () => {
   const style = {
     color: "white",
   };
+  const { isAuth } = useSelector((state) => state.storeReducer);
   return (
     <div className="header-container">
       <Title style={style}>
@@ -16,7 +20,7 @@ const Header = () => {
           Neto Social
         </NavLink>
       </Title>
-      <FormEntries />
+      {isAuth ? <FormAuthUser /> : <FormEntries />}
     </div>
   );
 };
