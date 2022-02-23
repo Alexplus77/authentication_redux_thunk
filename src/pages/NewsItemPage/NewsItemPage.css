@@ -1,0 +1,7 @@
+.btn-news-item{
+    display: grid;
+    grid-auto-flow: column;
+    width: 300px;
+    gap: 10px;
+    margin-left: 50%;
+}

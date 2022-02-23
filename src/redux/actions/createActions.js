@@ -5,6 +5,7 @@ import {
   SUBMIT_AUTH,
   EXIT_AUTH,
   FETCH_NEWS,
+  FETCH_NEWS_ITEM,
 } from "./actionTypes";
 import axios from "axios";
 
@@ -51,4 +52,16 @@ export const fetch_news = () => (dispatch) => {
       console.log("error fetchNews", e);
       handle_auth_exit();
     });
+};
+export const fetch_news_item = (dataItemNews) => ({
+  type: FETCH_NEWS_ITEM,
+  payload: dataItemNews,
+});
+export const handle_fetch_itemNews = (id) => (dispatch) => {
+  axios
+    .get(`http://localhost:8080/news${id}`)
+    .then(({ data }) => {
+      dispatch(fetch_news_item(data));
+    })
+    .catch((e) => console.log(e));
 };

@@ -2,9 +2,11 @@ import { List, Divider, Typography } from "antd";
 import React from "react";
 import "./News_List_Ant.css";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const News_List_Ant = () => {
   const { dataNews } = useSelector((state) => state.storeReducer);
+
   const defaultImage =
     "https://gamemag.ru/images/cache/News/News164452/d56285709e-2_1390x600.jpg";
 
@@ -26,7 +28,7 @@ const News_List_Ant = () => {
               style={{ paddingRight: "10px" }}
             />
             <List.Item.Meta
-              title={<a href="https://ant.design">{item.title}</a>}
+              title={<Link to={`/newsItem${item.id}`}>{item.title}</Link>}
               description={item.description}
             />
           </List.Item>

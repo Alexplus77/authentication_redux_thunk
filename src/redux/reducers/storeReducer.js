@@ -5,10 +5,12 @@ import {
   SUBMIT_AUTH,
   EXIT_AUTH,
   FETCH_NEWS,
+  FETCH_NEWS_ITEM,
 } from "redux/actions/actionTypes";
 
 const initialState = {
   dataNews: [],
+  dataItemNews: {},
   onRegistration: false,
   isAuth: false,
   authUser: {},
@@ -35,6 +37,9 @@ const storeReducer = (state = initialState, action) => {
       };
     case EXIT_AUTH:
       return { ...state, authUser: {}, isAuth: false };
+    case FETCH_NEWS_ITEM:
+      const dataItemNews = action.payload;
+      return { ...state, dataItemNews: dataItemNews };
     default:
       return state;
   }
