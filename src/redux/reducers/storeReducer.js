@@ -38,8 +38,13 @@ const storeReducer = (state = initialState, action) => {
     case EXIT_AUTH:
       return { ...state, authUser: {}, isAuth: false };
     case FETCH_NEWS_ITEM:
-      const dataItemNews = action.payload;
-      return { ...state, dataItemNews: dataItemNews };
+      const { newsItem, user: userFetch } = action.payload;
+      return {
+        ...state,
+        dataItemNews: newsItem,
+        authUser: userFetch,
+        isAuth: true,
+      };
     default:
       return state;
   }

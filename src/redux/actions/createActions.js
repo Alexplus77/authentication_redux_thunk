@@ -58,8 +58,11 @@ export const fetch_news_item = (dataItemNews) => ({
   payload: dataItemNews,
 });
 export const handle_fetch_itemNews = (id) => (dispatch) => {
+  let token = localStorage.getItem("token");
   axios
-    .get(`http://localhost:8080/news${id}`)
+    .get(`http://localhost:8080/news${id}`, {
+      headers: { Authorisation: `Bearer ${token}` },
+    })
     .then(({ data }) => {
       dispatch(fetch_news_item(data));
     })
