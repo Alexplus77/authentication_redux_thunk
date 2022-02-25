@@ -1,5 +1,4 @@
 .mainPage-container{
-    display: grid;
-    padding: 20px;
+    padding-left: 10px;
     overflow: auto;
 }

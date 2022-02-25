@@ -1,17 +1,19 @@
 import React from "react";
 import { Form, Input, Button } from "antd";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./FormEntries.css";
-import { handle_auth_user, fetch_news } from "redux/actions/createActions";
+import { handle_auth_user } from "redux/middlewares/handle_auth_user";
 
 const FormEntries = () => {
-  const { onRegistration } = useSelector((state) => state.storeReducer);
   const dispatch = useDispatch();
+  const [form] = Form.useForm();
   const navigate = useNavigate();
   const onFinish = (values) => {
     console.log("Success:", values);
     dispatch(handle_auth_user(values));
+    form.resetFields();
+    navigate("/");
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -19,14 +21,11 @@ const FormEntries = () => {
   };
   return (
     <Form
+      form={form}
       className="form-auth"
       name="basic"
-      initialValues={{
-        remember: true,
-      }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
-      autoComplete="off"
     >
       <Form.Item
         label={<label className="label">Username</label>}

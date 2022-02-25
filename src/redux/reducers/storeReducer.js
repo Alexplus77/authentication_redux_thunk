@@ -1,7 +1,5 @@
 import {
-  ADD_VALUE_USERS,
-  ON_REGISTRATION,
-  SUBMIT_REGISTRATION,
+  ON_LOADING,
   SUBMIT_AUTH,
   EXIT_AUTH,
   FETCH_NEWS,
@@ -11,22 +9,24 @@ import {
 const initialState = {
   dataNews: [],
   dataItemNews: {},
-  onRegistration: false,
   isAuth: false,
   authUser: {},
-  userRegistration: {},
+  loading: false,
+  error: null,
 };
 const storeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_VALUE_USERS:
-      const { name, value } = action.payload;
-      return {
-        ...state,
-        userRegistration: { ...state.userRegistration, [name]: value },
-      };
+    case ON_LOADING:
+      return { ...state, loading: true };
     case SUBMIT_AUTH:
       const data = action.payload;
-      return { ...state, authUser: data, isAuth: true, dataNews: data.news };
+      return {
+        ...state,
+        authUser: data,
+        isAuth: true,
+        dataNews: data.news,
+        loading: false,
+      };
     case FETCH_NEWS:
       const { news, user } = action.payload;
       return {
@@ -34,9 +34,10 @@ const storeReducer = (state = initialState, action) => {
         isAuth: true,
         dataNews: news,
         authUser: user,
+        loading: false,
       };
     case EXIT_AUTH:
-      return { ...state, authUser: {}, isAuth: false };
+      return { ...state, authUser: {}, isAuth: false, loading: false };
     case FETCH_NEWS_ITEM:
       const { newsItem, user: userFetch } = action.payload;
       return {
@@ -44,7 +45,9 @@ const storeReducer = (state = initialState, action) => {
         dataItemNews: newsItem,
         authUser: userFetch,
         isAuth: true,
+        loading: false,
       };
+
     default:
       return state;
   }

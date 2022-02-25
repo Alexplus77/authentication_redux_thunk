@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const News_List_Ant = () => {
-  const { dataNews } = useSelector((state) => state.storeReducer);
+  const { dataNews, loading } = useSelector((state) => state.storeReducer);
 
   const defaultImage =
     "https://gamemag.ru/images/cache/News/News164452/d56285709e-2_1390x600.jpg";
@@ -16,6 +16,7 @@ const News_List_Ant = () => {
         <Typography.Title> Последние новости</Typography.Title>
       </Divider>
       <List
+        loading={loading}
         style={{ background: "white", width: "700px", padding: "10px" }}
         itemLayout="horizontal"
         dataSource={dataNews}

@@ -1,13 +1,17 @@
-.title-container{
+.title-container {
+   align-self: center;
     display: grid;
     height: 100px;
 }
 
-.content-mainPage{
+.content-mainPage {
     display: grid;
+    height: 84vh;
     grid-auto-flow: column;
+    background-image: url("https://i.ibb.co/cCykn4G/pngegg.png");
+    background-repeat: no-repeat;
+    background-position: top 170px right;
+    background-size: 850px;
+    background-attachment: fixed;
 }
 
-.img-mainPage{
-    width: 700px;
-}

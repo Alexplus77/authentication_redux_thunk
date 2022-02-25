@@ -3,7 +3,7 @@ import "./FormAuthUser.css";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { handle_auth_exit } from "redux/actions/createActions";
+import { handle_auth_exit } from "redux/middlewares/handle_auth_exit";
 
 const FormAuthUser = () => {
   const { authUser } = useSelector((state) => state.storeReducer);

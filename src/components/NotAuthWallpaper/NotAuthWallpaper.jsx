@@ -7,14 +7,11 @@ const NotAuthWallpaper = () => {
   return (
     <div className="content-mainPage">
       <div className="title-container">
-        <Title style={{ fontSize: "6em" }}>Neto Social</Title>
-        <Title level={3}>FaceBook and VK killer.</Title>
+        <Title style={{ fontSize: "6em", height: "30px" }}>Neto Social</Title>
+        <Title style={{ height: "30px" }} level={3}>
+          FaceBook and VK killer.
+        </Title>
       </div>
-      <img
-        className="img-mainPage"
-        src={"https://i.ibb.co/cCykn4G/pngegg.png"}
-        alt={"photo"}
-      />
     </div>
   );
 };
