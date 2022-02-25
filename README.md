@@ -1,6 +1,5 @@
-Authentication
+Authentication [Demo](https://auth-redux-thunk.netlify.app/)
 ===
-
 Поскольку с Context API вы уже разобрались, пришло время разобраться и с Redux. Перепишите построенную вами систему на Redux (вы можете использовать на собственное усмотрение как чистый Redux с Side Effects, так и Redux + Redux Thunk).
 
 Но мы, всё-таки рекомендуем потренироваться именно в использовании Redux Thunk, т.к. это более распространённый подход для работы с Side Effects.
