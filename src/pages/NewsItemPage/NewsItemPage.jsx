@@ -9,9 +9,10 @@ const NewsItemPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { dataItemNews, loading } = useSelector((state) => state.storeReducer);
+  const token = localStorage.getItem("token");
   useEffect(() => {
-    dispatch(handle_fetch_itemNews(id));
-  }, [dispatch]);
+    token && dispatch(handle_fetch_itemNews(id));
+  }, []);
   const { urlToImage, title, description, url } = dataItemNews;
 
   const defaultImage =

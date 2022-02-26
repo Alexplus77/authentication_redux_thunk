@@ -10,9 +10,10 @@ const MainPage = () => {
 
   const dispatch = useDispatch();
 
+  const token = localStorage.getItem("token");
   useEffect(() => {
-    dispatch(fetch_news());
-  }, [dispatch]);
+    token && dispatch(fetch_news());
+  }, []);
 
   return (
     <div className="mainPage-container">
